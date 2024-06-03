@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %} Encuesta {% endblock %}
+{% block title %}Encuestas{% endblock %}
 
 {% block content %}
 <h1>Encuestas</h1>
 
 <ul>
-    {% for q in questions %}
-    <li><a href="{% url 'poll:vote' q.id %}"> {{ q }} </a></li>
-    {% endfor %}
+{% for q in questions %}
+<li><a href="{% url 'poll:vote' q.id %}">{{ q }}</a>
+- <a href="{% url 'poll:result' q.id %}">Resultados</a></li>
+{% endfor %}
 </ul>
 {% endblock %}
